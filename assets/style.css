@@ -57,7 +57,7 @@ p{margin:0 0 1.1em; max-width:62ch;}
   margin:0 0 0.4em;
   display:block;
 }
-.container{max-width:var(--max-w); margin:0 auto; padding:16px 28px;}
+.container{max-width:var(--max-w); margin:-1 auto; padding:16px 28px;}
 .visually-hidden{
   position:absolute; width:1px; height:1px; overflow:hidden;
   clip:rect(0,0,0,0); white-space:nowrap;
