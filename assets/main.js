@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------- scroll-reveal animation ---------- */
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var revealSelectors = '.card, .quote-card, .center-head, .hero-copy, .approach-list li, ' +
-    '.focus-grid > div, .contact-item, .cta-banner, .grid-3 > *, .grid-2 > *, .testimonial-notice';
+    '.focus-grid > div, .contact-item, .cta-banner, .grid-3 > *, .grid-2 > *';
   var revealEls = document.querySelectorAll(revealSelectors);
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
@@ -35,6 +35,20 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(function (el) { observer.observe(el); });
+  }
+
+  /* ---------- hero background video: slow motion + reduced motion ---------- */
+  var heroVideo = document.querySelector('.hero-photo-bg');
+  if (heroVideo) {
+    if (reduceMotion) {
+      heroVideo.pause();
+      heroVideo.removeAttribute('autoplay');
+    } else {
+      var setRate = function () { heroVideo.playbackRate = 0.55; };
+      setRate();
+      heroVideo.addEventListener('loadedmetadata', setRate);
+      heroVideo.addEventListener('play', setRate);
+    }
   }
 
   /* ---------- cookie consent banner ---------- */
