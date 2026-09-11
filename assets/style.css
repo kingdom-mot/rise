@@ -195,7 +195,10 @@ p{margin:0 0 1.1em; max-width:62ch;}
   display:block;
   object-fit:cover;
   object-position:center 18%;
-  border-radius:20px;
+  border-radius:var(--radius-arch);
+   border-top-left-radius: 999px;
+   border-top-right-radius: 999px;
+   border-bottom-right-radius: 24px;
 }
 .story-grid{
   display:grid;
